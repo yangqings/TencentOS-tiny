@@ -35,20 +35,19 @@ ARM_CortexM4_lib 和 ARM_CortexM7_lib 两个文件夹中存放了针对 Cortex M
 - 硬件平台：Necluo STM32L496ZG
 - 加速库：ARM CMSIS-NN
 - 测试输入图片：`tensorflow\lite\micro\tools\make\downloads\person_model_int8` 目录中 `person_image_data.cc` 和 `no_person_image_data.cc` 保存的 96 * 96 pixels ( uint_8 ) 灰度图。
+- 所用模型中的权值位数：定点 uint8
 - 单次执行和 10 次累计执行的测试结果如下：
 
 |                      Case                      |   Disable ARM-CMSIS-NN   |   Enable ARM-CMSISNN   | Improvement |
 | :--------------------------------------------: | :----------------------: | :------------------: | :---------: |
-|          Initialize_Benchmark_Runner           |     65 ticks (65 ms)     |   66 ticks (66 ms)   |      *      |
-|              Run_Single_Iteration              |  12476 ticks (12476 ms)  |  633 ticks (633 ms)  |   19.71X    |
-|   Person_Detection_Ten_Ierations_With_Person   | 124769 ticks (124769 ms) | 6324 ticks (6324 ms) |   19.73X    |
-| Person_Detection_Ten_Ierations_With_out_Person | 124770 ticks (124770 ms) | 6325 ticks (6325 ms) |   19.72X    |
+|          Initialization          |     65 ticks (65 ms)     |   66 ticks (66 ms)   |      *      |
+| Person_Detection_Ten_Ierations | 124769 ticks (124769 ms) | 6324 ticks (6324 ms) |   19.73X    |
 
 ## 5. TencentOS-tiny AI 开发组件
 
 TencentOS-tiny 已将 Tensorflow Lite Micro 以及 CMSIS-NN 集成到 AI 组件中，并通过其他组件与腾讯云无缝相连，打通从云到端整条链路，助力 AI 的发展与落地。随着越来越多的厂商采用 Arm Cortex M55 和 Ethos U NPU IP，相信未来端侧AI的应用会更加广阔。
 
-TencentOS-tiny AI组件：https://github.com/rceet/tencentos-tiny-with-tflitemicro-and-iot/tree/master/components/ai/tflite_micro
+TencentOS-tiny AI组件：https://github.com/Tencent/TencentOS-tiny/tree/master/components/ai/tflite_micro
 
 Arm Cortex M55：https://www.arm.com/products/silicon-ip-cpu/cortex-m/cortex-m55
 
