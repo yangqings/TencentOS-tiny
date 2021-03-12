@@ -19,7 +19,7 @@ limitations under the License.
 // This form is useful for compiling into a binary for devices that don't have a
 // file system.
 
-#include "tensorflow/lite/micro/examples/person_detection_experimental/person_detect_model_data.h"
+#include "person_detect_model_data.h"
 
 // Keep model aligned to 8 bytes to guarantee aligned 64-bit accesses.
 alignas(8) const unsigned char g_person_detect_model_data[] = {
